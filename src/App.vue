@@ -1,56 +1,51 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
 </script>
 
 <template>
   <div id="app">
-    
-    <b-navbar type="dark" variant="dark">
-      <b-navbar-nav>
-        <b-nav-item href="#">Home</b-nav-item>
-
-        <!-- Navbar dropdowns -->
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown text="User" right>
-          <b-dropdown-item href="#">Account</b-dropdown-item>
-          <b-dropdown-item href="#">Settings</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-navbar>
     <div>
+      <b-navbar toggleable="lg" type="dark" variant="dark">
+        <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item href="#">Link</b-nav-item>
+            <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          </b-navbar-nav>
+          <div style="padding-left: 1525px;">
+            <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+          </div>
+
+        </b-collapse>
+      </b-navbar>
+    </div>
+    <div class="col-md-10">
+      <!-- Botones y contenido principal aquí -->
       <b-button>Button</b-button>
       <b-button variant="danger">Button</b-button>
       <b-button variant="success">Button</b-button>
       <b-button variant="outline-primary">Button</b-button>
+      <!-- Añade más contenido según tus necesidades -->
     </div>
 
     <template>
       <div>
-        <b-sidebar id="sidebar-" title="Sidebar" shadow visible no-header-close >
+
+        <b-sidebar id="sidebar-1" title="Sidebar" shadow no-header-close>
           <div class="px-3 py-2">
             <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+              in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
             </p>
-            <b-img
-              src="https://picsum.photos/500/500/?image=54"
-              fluid
-              thumbnail
-            ></b-img>
+            <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
           </div>
         </b-sidebar>
       </div>
     </template>
+
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
