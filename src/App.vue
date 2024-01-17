@@ -1,49 +1,45 @@
-<script setup>
-</script>
-
+<script setup></script>
 <template>
   <div id="app">
-    <div>
-      <b-navbar toggleable="lg" type="dark" variant="dark">
-        <b-navbar-brand href="/#/inicio">NavBar</b-navbar-brand>
+    <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-navbar">
+      <b-navbar-brand class="inicio" href="/#/inicio">INICIO</b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    </b-navbar>
 
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <b-nav-item href="/#/page2">Page 2</b-nav-item>
-            <b-nav-item href="/#/page3">Page 3</b-nav-item>
-          </b-navbar-nav>
-          <div style="padding-left: 1525px">
-            <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-          </div>
-        </b-collapse>
-      </b-navbar>
+    <div class="grid-container">
+      <div class="sidebar fixed-sidebar">
+        <b-card title="Sidebar" style="height: 100vh;" class="mb-2">
+          <b-card-text>
+            <b-nav vertical class="pt-5">
+
+              <b-nav-item>
+                <b-link :to="{ name: 'juguete' }" active-class="link-seleccionado">Tienda de juguetes</b-link>
+              </b-nav-item>
+
+              <b-nav-item>
+                <b-link :to="{ name: 'electro' }" active-class="link-seleccionado">Tienda de electrodomesticos</b-link>
+              </b-nav-item>
+
+              <b-nav-item>
+                <b-link :to="{ name: 'prod' }" active-class="link-seleccionado">Tienda de productos para el
+                  hogar</b-link>
+              </b-nav-item>
+            </b-nav>
+          </b-card-text>
+        </b-card>
+      </div>
+
+      <div class="content">
+        <router-view></router-view>
+      </div>
     </div>
-    <div>
-      <b-sidebar id="sidebar-1" title="Sidebar" shadow>
-        <div class="px-3 py-2">
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
-          <b-img
-            src="https://picsum.photos/500/500/?image=54"
-            fluid
-            thumbnail
-          ></b-img>
-        </div>
-      </b-sidebar>
-    </div>
-   
-    <router-view> </router-view>
   </div>
 </template>
 
-
 <script>
-export default { data() {
+export default {
+  data() {
     return {
       items: [
         {
@@ -58,6 +54,32 @@ export default { data() {
         },
       ],
     };
-  },};
+  },
+};
 </script>
-<style scoped></style>
+<style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "sidebar content";
+  gap: 1rem;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.link-seleccionado {
+  color: #898989;
+}
+
+.inicio {
+  padding-left: 30px;
+}
+
+</style>

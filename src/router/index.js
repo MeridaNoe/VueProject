@@ -10,7 +10,38 @@ const routes = [
         path: '/',
         redirect: '/inicio'
     },
-
+     // RUTAS DE LA TIENDA DE JUGUETES
+     {
+        path: '/',
+        component: {
+            render(c) {
+                return c('router-view');
+            }
+        },
+        children: [
+            {
+                path: '/inicio',
+                name: 'inicio',
+                component: () => import('../components/Inicio.vue')
+            }
+        ]
+    },
+    {
+        path: '/',
+        component: {
+            render(c) {
+                return c('router-view');
+            }
+        },
+        children: [
+            {
+                path: '/juguete',
+                name: 'juguete',
+                component: () => import('../components/juguetes/Tienda.vue')
+            }
+        ]
+    },
+    // RUTAS DE LA TIENDA DE ELECTRODOMESTICOS
     {
         path: '/',
         component: {
@@ -35,12 +66,13 @@ const routes = [
         },
         children: [
             {
-                path: '/juguetes',
-                name: 'juguetes',
-                component: () => import('../components/Juguetes.vue')
+                path: '/electro',
+                name: 'electro',
+                component: () => import('../components/electrodomesticos/TiendaElectro.vue')
             }
         ]
     },
+    //RUTA DE LA TIENDA DE PRODUCTOS
     {
         path: '/',
         component: {
@@ -50,28 +82,12 @@ const routes = [
         },
         children: [
             {
-                path: '/tienda',
-                name: 'tienda',
-                component: () => import('../components/Tienda.vue')
+                path: '/prod',
+                name: 'prod',
+                component: () => import('../components/productos/TiendaProd.vue')
             }
         ]
     },
-    {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/elec',
-                name: 'elec',
-                component: () => import('../components/Electronicos.vue')
-            }
-        ]
-    },
-
 ]
 
 const router = new VueRouter({ routes, })

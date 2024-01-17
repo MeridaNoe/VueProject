@@ -1,10 +1,6 @@
 <template>
   <div>
     <h1>Welcome!!!</h1>
-    <b-card tag="article" style="width: 350px" class="mb-2">
-      <b-breadcrumb :items="items"></b-breadcrumb>
-    </b-card>
-    <b-breadcrumb :items="items"></b-breadcrumb>
   </div>
 </template>
 
