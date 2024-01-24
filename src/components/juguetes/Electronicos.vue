@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Electronicos!!!</h1>
-     
+    <b-breadcrumb :items="items"></b-breadcrumb>
   </div>
 </template>
 
@@ -10,19 +10,15 @@ export default {
   data() {
     return {
       items: [
-        {
-          text: "Tienda de juguetes",
-          href: "/#/tienda",
-          name: "Electronicos",
-        },
+        
         {
           text: "Electronicos",
-          href: "/#/juguetes",
+          href: "/#/elec",
           name: "",
         },
         {
           text: "Videojuegos",
-          href: "/#/juguetes"
+          href: "/#/vid"
         },
         {
           text:""

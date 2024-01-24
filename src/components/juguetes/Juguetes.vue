@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>VIDEOJUEGOS!!</h1>
+    <b-breadcrumb :items="items"></b-breadcrumb>
   </div>
 </template>
 
@@ -10,13 +11,8 @@
       return {
         items: [
           {
-            text: 'Tienda de juguetes',
-            href: '/#/tienda',
-            name: 'Tienda'
-          },
-          {
             text: 'Electronicos',
-            href: '/#/tienda',
+            href: '/#/elec',
             name: '',
           },
           {

@@ -4,91 +4,65 @@ import Vue from "vue";
 Vue.use(VueRouter);
 
 const routes = [
-    // ruta base
+  //la ruta base
+  {
+    path: "/",
+    component: () => import("../components/LandPage.vue"),
+  },
+  {
+    path: "/formulario",
+    name: "formulario",
+    component: () => import("../components/Formulario.vue"),
+  },
+  //las rutas asociadas a los componentes
+  {
+    path: "*",
+    component: () => import("../views/ErrorPages/Error404.vue"),
+  },
+  // RUTAS DE LA TIENDA DE JUGUETES
+  {
+    path: "/inicio",
+    component: () => import("../components/Inicio.vue"),
+    children: [
+      {
+        path: "/formulario",
+        name: "formulario",
+        component: () => import("../components/Formulario.vue"),
+      },
+      {
+        path: "/juguete",
+        name: "juguete",
+        component: () => import("../components/juguetes/Tienda.vue"),
+      },
+      {
+        path: "/elec",
+        name: "elec",
+        component: () => import("../components/juguetes/Electronicos.vue"),
+      },
+      {
+        path: "/vid",
+        name: "vid",
+        component: () => import("../components/juguetes/Juguetes.vue"),
+      },
+      {
+        path: "/electro",
+        name: "electro",
+        component: () =>
+          import("../components/electrodomesticos/TiendaElectro.vue"),
+      },
+      {
+        path: "/cocina",
+        name: "cocina",
+        component: () => import("../components/electrodomesticos/Cocina.vue"),
+      },
+      {
+        path: "/prod",
+        name: "prod",
+        component: () => import("../components/productos/TiendaProd.vue"),
+      },
+    ],
+  },
+];
 
-    {
-        path: '/',
-        redirect: '/inicio'
-    },
-     // RUTAS DE LA TIENDA DE JUGUETES
-     {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/inicio',
-                name: 'inicio',
-                component: () => import('../components/Inicio.vue')
-            }
-        ]
-    },
-    {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/juguete',
-                name: 'juguete',
-                component: () => import('../components/juguetes/Tienda.vue')
-            }
-        ]
-    },
-    // RUTAS DE LA TIENDA DE ELECTRODOMESTICOS
-    {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/inicio',
-                name: 'inicio',
-                component: () => import('../components/Inicio.vue')
-            }
-        ]
-    },
-    {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/electro',
-                name: 'electro',
-                component: () => import('../components/electrodomesticos/TiendaElectro.vue')
-            }
-        ]
-    },
-    //RUTA DE LA TIENDA DE PRODUCTOS
-    {
-        path: '/',
-        component: {
-            render(c) {
-                return c('router-view');
-            }
-        },
-        children: [
-            {
-                path: '/prod',
-                name: 'prod',
-                component: () => import('../components/productos/TiendaProd.vue')
-            }
-        ]
-    },
-]
-
-const router = new VueRouter({ routes, })
+const router = new VueRouter({ routes });
 export default router;
