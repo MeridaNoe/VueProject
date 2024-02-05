@@ -12,7 +12,6 @@
               <li class="nav-item">
                 <router-link to="/features" class="nav-link">Extras</router-link>
               </li>
-              <!-- Add more navigation links as needed -->
             </ul>
           </div>
         </div>

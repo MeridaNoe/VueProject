@@ -9,6 +9,12 @@ const routes = [
     path: "/",
     component: () => import("../components/LandPage.vue"),
   },
+  
+  {
+    path: '/pagination',
+    name: 'pagination',
+    component: () => import('../components/Pagination.vue')
+  },
   {
     path: "/formulario",
     name: "formulario",
@@ -24,11 +30,6 @@ const routes = [
     path: "/inicio",
     component: () => import("../components/Inicio.vue"),
     children: [
-      {
-        path: "/formulario",
-        name: "formulario",
-        component: () => import("../components/Formulario.vue"),
-      },
       {
         path: "/juguete",
         name: "juguete",

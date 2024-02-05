@@ -9,6 +9,7 @@
           <b-collapse id="navbar-nav" is-nav>
             <b-navbar-nav class="ml-auto">
               <b-nav-item href="/#/formulario">Formulario</b-nav-item>
+              <b-nav-item href="/#/pagination">Paginacion</b-nav-item>
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
@@ -66,9 +67,5 @@
 
 .link-seleccionado {
   color: #898989;
-}
-
-.inicio {
-  padding-left: 30px;
 }
 </style>

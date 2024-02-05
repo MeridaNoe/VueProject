@@ -49,8 +49,12 @@
           <b-form-input id="cellphone" v-model="cellphone" type="number" name="cellphone" required></b-form-input>
         </b-form-group>
 
-        <b-form-group id="file-group" label="Photo" label-for="file" :state="file ? null : false">
-          <b-form-input id="file" v-model="file" type="file" name="file" required></b-form-input>
+        <b-form-group label="Photo">
+          <b-form-file id="photo" v-model="photo" :state="photoState" accept=".png" :max-size="3000000"
+            placeholder="Selecciona una foto (PNG, max 3MB)"></b-form-file>
+          <b-form-invalid-feedback :state="photoState">
+            Selecciona una foto en formato PNG y que sea menor a 3MB.
+          </b-form-invalid-feedback>
         </b-form-group>
 
 
